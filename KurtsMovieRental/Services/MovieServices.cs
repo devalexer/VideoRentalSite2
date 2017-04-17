@@ -83,7 +83,6 @@ namespace KurtsMovieRental.Services
                 [YearReleased] = @YearReleased
                 ,[Director] = @Director
                 ,[GenreId] = @GenreId
-                ,[IsCheckedOut] = @IsCheckedOut
                 WHERE Id = @Id";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
@@ -96,5 +95,22 @@ namespace KurtsMovieRental.Services
                 connection.Close();
             }
         }
+
+        public void DeleteMovie(Movie movie)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var text = @"DELETE FROM Movies WHERE Id = @Id";
+
+                var cmd = new SqlCommand(text, connection);
+                cmd.Parameters.AddWithValue("@Id", movie.Id);
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+
     }
 }

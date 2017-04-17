@@ -24,7 +24,7 @@ namespace KurtsMovieRental.Models
 
         public Genre(FormCollection collection)
         {
-            this.Id = int.Parse(collection["Id"]);
+            //this.Id = int.Parse(collection["Id"]);
             this.Name = collection["Name"].ToString();
         }
 

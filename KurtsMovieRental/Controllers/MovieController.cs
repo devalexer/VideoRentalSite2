@@ -58,24 +58,19 @@ namespace KurtsMovieRental.Controllers
             new MovieServices().EditMovie(updatedMovie, id);
             return RedirectToAction("Index");
         }
-
-
-        [HttpDelete]
-        public ActionResult Delete()
+        
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            //var movie = new MovieServices().DeleteMovie();
-            return View();
-
+            var movie = movieServices.GetAllMovies().First(f => f.Id == id);
+            return View(movie);
         }
 
-        //[HttpPost]
-        //public ActionResult Delete(FormCollection collection, int id)
-        //{
-        //    var newMovie = new Movie(collection);
-        //    movieServices.DeleteMovie(newMovie);
-        //    return RedirectToAction("Index");
-        //}
-
-
+        [HttpPost]
+        public ActionResult Delete(Movie movie)
+        {
+            movieServices.DeleteMovie(movie);
+            return RedirectToAction("Index");
+        }
     }
 }

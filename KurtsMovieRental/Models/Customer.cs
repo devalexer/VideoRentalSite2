@@ -29,7 +29,7 @@ namespace KurtsMovieRental.Models
 
         public Customer(FormCollection collection)
         {
-            this.Id = int.Parse(collection["Id"]);
+            //this.Id = int.Parse(collection["Id"]);
             this.Name = collection["Name"].ToString();
             this.Email = collection["Email"].ToString();
             this.PhoneNumber = collection["PhoneNumber"].ToString();
