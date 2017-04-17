@@ -1,0 +1,23 @@
+﻿@model IEnumerable<KurtsMovieRental.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admin View</h2>
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("View/Edit Movies", "Index", "Movie", null, new { @class = "btn btn-primary btn-block" })
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("View/Edit Genres", "Index", "Genre", null, new { @class = "btn btn-primary btn-block" })
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("View/Edit Customers", "Index", "Customer", null, new { @class = "btn btn-primary btn-block" })
+    </div>
+</div>
+
+
